@@ -1,3 +1,4 @@
+include ':library-ui-core'
 include ':feature-notifications'
 include ':feature-dashboard'
 include ':feature-home'
