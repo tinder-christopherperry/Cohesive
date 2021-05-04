@@ -1,2 +1,5 @@
+include ':feature-notifications'
+include ':feature-dashboard'
+include ':feature-home'
 include ':app'
 rootProject.name = "Cohesive"
