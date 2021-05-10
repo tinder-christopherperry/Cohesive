@@ -1,4 +1,4 @@
-package com.tinder.notifications
+package com.tinder.matches
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ class MatchesFragment : Fragment() {
     ): View? {
         matchesViewModel =
                 ViewModelProvider(this).get(MatchesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
+        val root = inflater.inflate(R.layout.fragment_matches, container, false)
         val textView: TextView = root.findViewById(R.id.text_notifications)
         matchesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it

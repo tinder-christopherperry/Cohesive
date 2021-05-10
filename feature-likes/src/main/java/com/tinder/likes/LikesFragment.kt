@@ -1,4 +1,4 @@
-package com.tinder.dashboard
+package com.tinder.likes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ class LikesFragment : Fragment() {
     ): View? {
         likesViewModel =
                 ViewModelProvider(this).get(LikesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val root = inflater.inflate(R.layout.fragment_likes, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
         likesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it

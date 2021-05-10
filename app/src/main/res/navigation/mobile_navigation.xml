@@ -12,14 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.tinder.dashboard.LikesFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_likes"
+        android:name="com.tinder.likes.LikesFragment"
+        android:label="@string/title_likes"
+        tools:layout="@layout/fragment_likes" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.tinder.notifications.MatchesFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_matches"
+        android:name="com.tinder.matches.MatchesFragment"
+        android:label="@string/title_matches"
+        tools:layout="@layout/fragment_matches" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.tinder.profile.ProfileFragment"
+        android:label="@string/title_user_profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>

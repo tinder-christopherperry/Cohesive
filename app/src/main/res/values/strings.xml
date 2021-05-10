@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Cohesive</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_likes">Likes</string>
+    <string name="title_matches">User Profile</string>
+    <string name="title_user_profile">User Profile</string>
 </resources>
