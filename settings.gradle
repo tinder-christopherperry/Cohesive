@@ -1,6 +1,8 @@
 include ':library-ui-core'
-include ':feature-notifications'
-include ':feature-dashboard'
+include ':feature-matches'
+include ':feature-likes'
 include ':feature-home'
 include ':app'
 rootProject.name = "Cohesive"
+include ':feature-profile'
+include ':library-navigation'
