@@ -1,64 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp">
 
-    <FrameLayout
-        android:id="@+id/imageContainer"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/snippet">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/blackpanther"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/snippet"
             />
 
-        <TextView
-            android:id="@+id/no"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:id="@+id/imageContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:alpha="0"
-            android:text="@string/text_swipe_rejection"
-            android:textColor="@android:color/holo_red_dark"
-            android:textSize="82sp" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/snippet">
+
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:text="@string/text_swipe_rejection"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="82sp" />
+
+            <TextView
+                android:id="@+id/yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:alpha="0"
+                android:text="@string/text_swipe_match"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="82sp" />
+
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/yes"
-            android:layout_width="wrap_content"
+            android:id="@+id/snippet"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:alpha="0"
-            android:text="@string/text_swipe_match"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="82sp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:ellipsize="end"
+            android:gravity="left|center_vertical"
+            android:padding="16dp"
+            android:singleLine="true"
+            tools:text="Cute Kitty"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/snippet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/imageContainer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:ellipsize="end"
-        android:gravity="left|center_vertical"
-        android:padding="16dp"
-        android:singleLine="true"
-        tools:text="Cute Kitty"
-        android:textColor="@android:color/black"
-        android:textSize="22sp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
