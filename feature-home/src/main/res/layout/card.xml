@@ -3,25 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="290dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="top|center_horizontal"
-    android:background="@android:color/white"
-    android:paddingTop="16dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <FrameLayout
         android:id="@+id/imageContainer"
-        android:layout_width="290dp"
-        android:layout_height="290dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/snippet">
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="290dp"
-            android:layout_height="290dp"
-            tools:src="@tools:sample/avatars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/blackpanther"
             />
 
         <TextView
@@ -51,8 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/imageContainer"
-        app:layout_constraintStart_toStartOf="@id/imageContainer"
-        app:layout_constraintEnd_toEndOf="@id/imageContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:ellipsize="end"
         android:gravity="left|center_vertical"
         android:padding="16dp"

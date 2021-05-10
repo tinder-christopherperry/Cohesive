@@ -33,9 +33,9 @@ object Activities {
 }
 
 object Fragments {
-    fun fragmentForProfile(userName: String): Fragment? {
+    fun fragmentForProfileOptions(userName: String): Fragment? {
         val args = Bundle().apply { putString("userName", userName) }
-        return loadClassOrNull<Fragment>("com.tinder.ProfileFragment")?.newInstance()
+        return loadClassOrNull<Fragment>("com.tinder.ProfileOptionsFragment")?.newInstance()
             .apply {
                 this?.arguments = args
             }

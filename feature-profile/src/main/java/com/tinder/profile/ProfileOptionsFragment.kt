@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
-class ProfileFragment: Fragment() {
+class ProfileOptionsFragment: Fragment() {
 
     private lateinit var profileViewModel: ProfileViewModel
 
@@ -17,7 +17,7 @@ class ProfileFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_profile, container, false)
+        val root = inflater.inflate(R.layout.fragment_profile_options, container, false)
         val pageTitle = root.findViewById<TextView>(R.id.page_title)
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         profileViewModel.text.observe(viewLifecycleOwner, {
