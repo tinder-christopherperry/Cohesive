@@ -15,10 +15,6 @@ class TinderAvatarView @JvmOverloads constructor(context: Context, attrs: Attrib
     ShapeableImageView(context, attrs) {
 
     init {
-        if (height != width) {
-            layoutParams = layoutParams.apply { height = width }
-        }
-
         shapeAppearanceModel =
             ShapeAppearanceModel().toBuilder()
                 .setBottomLeftCorner(CornerFamily.ROUNDED, ::halfWidth)
