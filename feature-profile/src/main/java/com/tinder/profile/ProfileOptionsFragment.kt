@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 
 class ProfileOptionsFragment: Fragment() {
 
-    private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var profileOptionsViewModel: ProfileOptionsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,8 +19,8 @@ class ProfileOptionsFragment: Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_profile_options, container, false)
         val pageTitle = root.findViewById<TextView>(R.id.page_title)
-        profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        profileViewModel.text.observe(viewLifecycleOwner, {
+        profileOptionsViewModel = ViewModelProvider(this).get(ProfileOptionsViewModel::class.java)
+        profileOptionsViewModel.text.observe(viewLifecycleOwner, {
             pageTitle.text = it
         })
         return root

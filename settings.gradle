@@ -6,3 +6,4 @@ include ':app'
 rootProject.name = "Cohesive"
 include ':feature-profile'
 include ':library-navigation'
+include ':library-repository-user'

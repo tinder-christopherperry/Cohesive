@@ -4,53 +4,33 @@ import androidx.annotation.DrawableRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.tinder.user.UserRepository
 
-internal class HomeViewModel : ViewModel() {
+internal class HomeViewModel(private val getCardComponents: GetCardComponents = GetCardComponents()) : ViewModel() {
 
     private val _cardComponents = MutableLiveData<List<CardComponent>>().apply {
-        value = listOf(
-            CardComponent(
-                id = 1,
-                imageResourceId = R.drawable.capnamerica,
-                userName = "Steve"
-            ),
-            CardComponent(
-                id = 2,
-                imageResourceId = R.drawable.blackpanther,
-                userName = "T'Challa"
-            ),
-            CardComponent(
-                id = 3,
-                imageResourceId = R.drawable.ironman,
-                userName = "Tony"
-            ),
-            CardComponent(
-                id = 4,
-                imageResourceId = R.drawable.hulk,
-                userName = "Bruce"
-            ),
-            CardComponent(
-                id = 5,
-                imageResourceId = R.drawable.thor,
-                userName = "Thor"
-            ),
-            CardComponent(
-                id = 6,
-                imageResourceId = R.drawable.spidey,
-                userName = "Peter"
-            ),
-            CardComponent(
-                id = 7,
-                imageResourceId = R.drawable.capnmarvel,
-                userName = "Carol"
-            )
-        )
+        value = getCardComponents()
     }
+
     val cardComponents: LiveData<List<CardComponent>> = _cardComponents
 }
 
 internal data class CardComponent(
-    val id: Int,
+    val id: Long,
     @DrawableRes val imageResourceId: Int,
-    val userName: String
+    val userName: String,
+    val bio: String
 )
+
+internal class GetCardComponents(private val userRepository: UserRepository = UserRepository()) {
+    operator fun invoke(): List<CardComponent> {
+        return userRepository.getUsers().map {
+            CardComponent(
+                id = it.id,
+                userName = it.name,
+                imageResourceId = it.imageResourceId,
+                bio = it.bio
+            )
+        }
+    }
+}

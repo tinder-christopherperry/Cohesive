@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
-
+import com.tinder.navigation.Activities
 
 class HomeFragment : Fragment(), SwipeFlingAdapterView.onFlingListener {
 
@@ -20,18 +20,24 @@ class HomeFragment : Fragment(), SwipeFlingAdapterView.onFlingListener {
     private lateinit var cardStackView: SwipeFlingAdapterView
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         cardStackView = root.findViewById(R.id.card_stack)
 
         cardStackAdapter = CardStackAdapter(layoutInflater)
         cardStackView.setFlingListener(this)
+        cardStackView.setOnItemClickListener { _, item ->
+            val cardComponent = item as CardComponent
+            Activities.intentForProfile(requireContext(), cardComponent.id)?.let {
+                startActivity(it)
+            }
+        }
         cardStackView.adapter = cardStackAdapter
 
         homeViewModel.cardComponents.observe(viewLifecycleOwner, Observer {
@@ -71,7 +77,9 @@ class HomeFragment : Fragment(), SwipeFlingAdapterView.onFlingListener {
     }
 }
 
-private class CardStackAdapter(private val inflater: LayoutInflater): BaseAdapter() {
+private class CardStackAdapter(
+    private val inflater: LayoutInflater
+) : BaseAdapter() {
     private val stackItems = mutableListOf<CardComponent>()
 
     fun setItems(items: List<CardComponent>) {
