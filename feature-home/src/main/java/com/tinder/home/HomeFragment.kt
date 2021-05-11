@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -33,7 +34,7 @@ class HomeFragment : Fragment(), SwipeFlingAdapterView.onFlingListener {
         cardStackView.setFlingListener(this)
         cardStackView.adapter = cardStackAdapter
 
-        homeViewModel.cardTexts.observe(viewLifecycleOwner, Observer {
+        homeViewModel.cardComponents.observe(viewLifecycleOwner, Observer {
             cardStackAdapter.setItems(it)
         })
 
@@ -71,9 +72,9 @@ class HomeFragment : Fragment(), SwipeFlingAdapterView.onFlingListener {
 }
 
 private class CardStackAdapter(private val inflater: LayoutInflater): BaseAdapter() {
-    private val stackItems = mutableListOf<String>()
+    private val stackItems = mutableListOf<CardComponent>()
 
-    fun setItems(items: List<String>) {
+    fun setItems(items: List<CardComponent>) {
         stackItems.clear()
         stackItems.addAll(items)
         notifyDataSetChanged()
@@ -88,7 +89,7 @@ private class CardStackAdapter(private val inflater: LayoutInflater): BaseAdapte
         return stackItems.size
     }
 
-    override fun getItem(position: Int): String {
+    override fun getItem(position: Int): CardComponent {
         return stackItems[position]
     }
 
@@ -102,7 +103,9 @@ private class CardStackAdapter(private val inflater: LayoutInflater): BaseAdapte
             view = inflater.inflate(R.layout.card, parent, false)
         }
 
-        view?.findViewById<TextView>(R.id.snippet)?.text = getItem(position)
+        val cardComponent = getItem(position)
+        view?.findViewById<ImageView>(R.id.image)?.setImageResource(cardComponent.imageResourceId)
+        view?.findViewById<TextView>(R.id.snippet)?.text = cardComponent.userName
 
         return view as View
     }
