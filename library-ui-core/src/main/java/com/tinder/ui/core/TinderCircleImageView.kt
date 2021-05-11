@@ -11,7 +11,7 @@ import kotlin.math.min
 /**
  * Circular ImageView, used for displaying user avatars etc.
  */
-class TinderAvatarView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
+class TinderCircleImageView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     ShapeableImageView(context, attrs) {
 
     init {

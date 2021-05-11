@@ -50,6 +50,16 @@ class UserRepository {
     }
 
     fun getUser(id: Long): User? {
+        if (id == 0L) return getLoggedInUser()
         return getUsers().firstOrNull { it.id == id }
+    }
+
+    fun getLoggedInUser(): User {
+        return User(
+            id = 0,
+            imageResourceId = R.drawable.nickfury,
+            name = "Nick",
+            bio = "Last Time I Trusted Someone, I Lost An Eye."
+        )
     }
 }

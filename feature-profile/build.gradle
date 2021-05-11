@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation project(":library-navigation")
     implementation project(":library-ui-core")
     implementation project(":library-repository-user")
 
