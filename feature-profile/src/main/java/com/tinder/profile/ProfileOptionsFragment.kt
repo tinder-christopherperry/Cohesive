@@ -1,6 +1,6 @@
 package com.tinder.profile
 
-import android.app.Activity
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.tinder.navigation.Activities
-import com.tinder.navigation.Navigation
 import com.tinder.ui.core.TinderCircleImageView
 
 class ProfileOptionsFragment: Fragment() {
@@ -27,7 +26,7 @@ class ProfileOptionsFragment: Fragment() {
         profileOptionsViewModel = ViewModelProvider(this).get(ProfileOptionsViewModel::class.java)
         profileOptionsViewModel.profileOptionsComponent.observe(viewLifecycleOwner, { component ->
             name.text = component.name
-            image.setImageResource(component.imageResourceId)
+            image.setImageURI(Uri.parse(component.imageResourceUri))
             image.setOnClickListener {
                 val intent = Activities.intentForProfile(requireContext(), component.id)
                 startActivity(intent)

@@ -1,5 +1,6 @@
 package com.tinder.profile
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,8 @@ class ProfileFragment: Fragment() {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         profileViewModel.profileComponent(userId).observe(this) {
-            view.findViewById<ImageView>(R.id.image).setImageResource(it.imageResourceId)
+//            view.findViewById<ImageView>(R.id.image).setImageResource(it.imageResourceId)
+            view.findViewById<ImageView>(R.id.image).setImageURI(Uri.parse(it.imageResourceUri))
             view.findViewById<TextView>(R.id.username).text = it.name
             view.findViewById<TextView>(R.id.about).text = it.bio
         }

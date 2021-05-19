@@ -1,5 +1,6 @@
 package com.tinder.home
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -112,7 +113,7 @@ private class CardStackAdapter(
         }
 
         val cardComponent = getItem(position)
-        view?.findViewById<ImageView>(R.id.image)?.setImageResource(cardComponent.imageResourceId)
+        view?.findViewById<ImageView>(R.id.image)?.setImageURI(Uri.parse(cardComponent.imageResourceUri))
         view?.findViewById<TextView>(R.id.snippet)?.text = cardComponent.userName
 
         return view as View

@@ -1,6 +1,5 @@
 package com.tinder.home
 
-import androidx.annotation.DrawableRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +16,7 @@ internal class HomeViewModel(private val getCardComponents: GetCardComponents = 
 
 internal data class CardComponent(
     val id: Long,
-    @DrawableRes val imageResourceId: Int,
+    val imageResourceUri: String,
     val userName: String,
     val bio: String
 )
@@ -28,7 +27,7 @@ internal class GetCardComponents(private val userRepository: UserRepository = Us
             CardComponent(
                 id = it.id,
                 userName = it.name,
-                imageResourceId = it.imageResourceId,
+                imageResourceUri = it.imageResourceUri,
                 bio = it.bio
             )
         }

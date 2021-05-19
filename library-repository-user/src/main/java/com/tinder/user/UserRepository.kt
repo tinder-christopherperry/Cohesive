@@ -6,43 +6,43 @@ class UserRepository {
         return listOf(
             User(
                 id = 1,
-                imageResourceId = R.drawable.capnamerica,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/capnamerica",
                 name = "Steve",
                 bio = "I don't like bullies; I don't care where they're from."
             ),
             User(
                 id = 2,
-                imageResourceId = R.drawable.blackpanther,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/blackpanther",
                 name = "T'Challa",
                 bio = "Wakanda Forever!"
             ),
             User(
                 id = 3,
-                imageResourceId = R.drawable.ironman,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/ironman",
                 name = "Tony",
                 bio = "Sometimes you gotta run before you walk."
             ),
             User(
                 id = 4,
-                imageResourceId = R.drawable.hulk,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/hulk",
                 name = "Bruce",
                 bio = "Don't make me angry. You wouldn't like me when I'm angry."
             ),
             User(
                 id = 5,
-                imageResourceId = R.drawable.thor,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/thor",
                 name = "Thor",
                 bio = "I don't drink tea."
             ),
             User(
                 id = 6,
-                imageResourceId = R.drawable.spidey,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/spidey",
                 name = "Peter",
                 bio = "With Great Power, Comes Great Responsibility."
             ),
             User(
                 id = 7,
-                imageResourceId = R.drawable.capnmarvel,
+                imageResourceUri = "android.resource://com.tinder.cohesive/drawable/capnmarvel",
                 name = "Carol",
                 bio = "Higher, further, faster."
             )
@@ -57,7 +57,7 @@ class UserRepository {
     fun getLoggedInUser(): User {
         return User(
             id = 0,
-            imageResourceId = R.drawable.nickfury,
+            imageResourceUri = "android.resource://com.tinder.cohesive/drawable/nickfury",
             name = "Nick",
             bio = "Last Time I Trusted Someone, I Lost An Eye."
         )

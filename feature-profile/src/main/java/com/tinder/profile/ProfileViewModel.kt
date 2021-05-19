@@ -1,6 +1,5 @@
 package com.tinder.profile
 
-import androidx.annotation.DrawableRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +15,7 @@ class ProfileViewModel(private val getProfileComponent: GetProfileComponent = Ge
 }
 
 data class ProfileComponent(
-    @DrawableRes val imageResourceId: Int,
+    val imageResourceUri: String,
     val name: String,
     val bio: String
 )
@@ -25,7 +24,7 @@ class GetProfileComponent(private val userRepository: UserRepository = UserRepos
     operator fun invoke(userId: Long): ProfileComponent {
         val user = userRepository.getUser(userId)!!
         return ProfileComponent(
-            imageResourceId = user.imageResourceId,
+            imageResourceUri = user.imageResourceUri,
             name = user.name,
             bio = user.bio
         )
